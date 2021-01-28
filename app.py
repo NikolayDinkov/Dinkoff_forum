@@ -156,10 +156,6 @@ def new_post(id):
 @login_required
 def edit(id1, id2):
     post = Post.query.get_or_404(id2)
-    if current_user.id != post.user_id:
-        flash('You are not the owner')
-        return redirect('/discussions')
-
     if request.method == 'POST':
         post.title = request.form['title']
         post.content = request.form['content']
@@ -172,10 +168,6 @@ def edit(id1, id2):
 @login_required
 def delete(id1, id2):
     post = Post.query.get_or_404(id2)
-    if current_user.id != post.user_id:
-        flash('You are not the owner')
-        return redirect('/discussions')
-    
     db.session.delete(post)
     db.session.commit()
     return redirect('/discussions/' + str(id1))

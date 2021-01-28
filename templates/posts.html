@@ -19,8 +19,10 @@
         <br>
         <p style="white-space:pre-wrap">{{ post.content }}</p>
         <br>
-        <a class="btn btn-danger" href='/discussions/{{ id }}/delete/{{post.id}}'>Delete</a>
-        <a class="btn btn-primary" href='/discussions/{{ id }}/edit/{{post.id}}'>Edit</a>
+        {% if current_user.id == post.user_id %}
+            <a class="btn btn-danger" href='/discussions/{{ id }}/delete/{{post.id}}'>Delete</a>
+            <a class="btn btn-primary" href='/discussions/{{ id }}/edit/{{post.id}}'>Edit</a>
+        {% endif %}
         <br>
         <hr>
         <br>
