@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block head %}{% endblock  %}
+
+{% block body %}
+<br>
+<div>
+    <h1 style="display:inline">Всички теми</h1>
+    {% if current_user.is_authenticated %}
+        <a style="display:inline" class="btn btn-success float-right" href="/discussions/new" >+ Нова тема</a>
+    {% endif %}
+</div>
+    <hr>
+
+    {% for discussion in discussions %}
+        <h2>{{ discussion.title }}</h2>
+        <br>
+        <br>
+        <p style="white-space:pre-wrap">{{ discussion.content }}</p>
+        <a class="btn btn-success float-right" href="/discussions/{{ discussion.id }}" >Разгледай</a>
+        <br>
+        <br>
+        <hr>
+        <br>
+    {% endfor%}
+
+{% endblock  %}

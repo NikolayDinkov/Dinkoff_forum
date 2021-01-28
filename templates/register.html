@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h3 class="title">Регистрация</h3>
+            <form method="POST" action="/register">
+              <br>
+              <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="username" name="username" class="form-control" id="exampleInputUsername" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">Личната Ви информация няма да бъде споделяна с никого</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
