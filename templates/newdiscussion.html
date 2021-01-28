@@ -1,14 +1,14 @@
 {% extends 'main.html' %}
 
 {% block head %}
-<title>New Discussion</title> 
+<title>Нова тема</title> 
 {% endblock %}
 
 {% block body %}
 <br>
-<h1>New Discussion</h1>
+<h1>Нова тема</h1>
     <hr>
-    <h2>Create New Blog Post:</h2>
+    <h2>Направете нова тема:</h2>
     <form action='/discussions' method='POST'>
         <label for="title">Title:</label>
         <input class="form-control" type="text" name='title' id='title' placeholder="Enter Title" aria-label="Enter Title">

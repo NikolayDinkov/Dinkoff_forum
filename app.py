@@ -81,10 +81,14 @@ def register():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+        user = User.query.filter_by(username=username).first()
+        if user:
+            flash('Username-а вече е зает.')
+            return redirect(url_for('register'))
 
         user = User.query.filter_by(email=email).first()
         if user:
-            flash('Email address already exists.')
+            flash('Email address-а вече е зает.')
             return redirect(url_for('register'))
 
         new_user = User(email=email, username=username, password=generate_password_hash(password))
@@ -110,6 +114,7 @@ def login():
             login_user(user)
             return redirect(url_for('homepage'))
         else:
+            flash('Имате грешка')
             return redirect(url_for('login'))
 
 @app.route('/logout')

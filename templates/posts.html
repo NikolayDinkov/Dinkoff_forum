@@ -1,20 +1,20 @@
 {% extends 'main.html' %}
 
 {% block head %}
-<title>Posts</title> 
+<title>Постове</title> 
 {% endblock %}
 
 {% block body %}
 <br>
 <div>
-    <h1 style="display:inline">All Posts</h1>
+    <h1 style="display:inline">Всички постове</h1>
     <a style="display:inline" class="btn btn-success float-right" href="/discussions/{{ id }}/new" >+ New Post</a>
 </div>
     <hr>
 
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
-        <small> Written by {{ post.writer }} on {{ post.date_posted }}</small>
+        <small> Written by {{ post.writer }} on {{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
         <br>
         <br>
         <p style="white-space:pre-wrap">{{ post.content }}</p>
