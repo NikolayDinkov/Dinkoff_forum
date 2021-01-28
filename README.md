@@ -6,4 +6,4 @@ pip install -r requirements.txt
 
 # run
 export FLASK_ENV=development
-python main.py
+flask run
